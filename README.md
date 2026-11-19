@@ -9,7 +9,7 @@ Upstream: none
 ## Run it
 
 ```bash
-node tools/gen-sample.mjs     # writes data/gears.json (353 KB), deterministic
+node tools/gen-sample.mjs     # writes data/gears.json (356 KB), deterministic
 node bench/verify.mjs         # 24 assertions, exit 0
 node bench/bench.mjs          # writes bench/result.json
 ```
