@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>involute-gear-lab — contact ratio + undercut + watertight certificate</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0b0f14; color: #e6edf3; font: 14px/1.45 ui-sans-serif, system-ui, sans-serif; overflow: hidden; }
+  #view { position: fixed; inset: 0; }
+  #panel { position: fixed; top: 14px; left: 14px; width: 330px; background: rgba(11,15,20,.92);
+    border: 1px solid #2b3442; border-radius: 10px; padding: 14px 16px; backdrop-filter: blur(8px); }
+  h1 { font-size: 15px; margin: 0 0 2px; }
+  .sub { color: #8b949e; font-size: 11.5px; margin-bottom: 10px; }
+  label { display: block; color: #8b949e; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; margin: 10px 0 3px; }
+  input[type=range] { width: 100%; }
+  .row { display: flex; justify-content: space-between; font-variant-numeric: tabular-nums; padding: 3px 0; border-bottom: 1px solid #1b2430; }
+  .row b { color: #7ee787; font-weight: 600; }
+  .bad { color: #f85149 !important; }
+  .warn { color: #d29922; font-size: 11.5px; margin-top: 8px; }
+  #note { color: #8b949e; font-size: 11px; margin-top: 8px; }
+</style>
+<script type="importmap">
+{"imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="panel">
+  <h1>involute-gear-lab</h1>
+  <div class="sub">Z-up · live meshing · same core.mjs as node</div>
+  <label>pinion teeth: <span id="z1v">20</span></label>
+  <input id="z1" type="range" min="10" max="40" step="1" value="20">
+  <label>wheel teeth: <span id="z2v">40</span></label>
+  <input id="z2" type="range" min="10" max="70" step="1" value="40">
+  <label>module: <span id="mv">2.0</span> mm</label>
+  <input id="m" type="range" min="1" max="4" step="0.1" value="2">
+  <label>pressure angle: <span id="av">20.0</span>°</label>
+  <input id="a" type="range" min="14.5" max="25" step="0.5" value="20">
+  <div id="stats"></div>
+  <div class="warn" id="uc"></div>
+  <div id="note">animation is visual; every number is recomputed by src/core.mjs in this page</div>
+</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

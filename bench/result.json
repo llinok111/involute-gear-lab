@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-11-19T14:32:57.436Z",
+  "node": "v24.19.0",
+  "mesh": {
+    "teeth": 24,
+    "module": 2,
+    "flankSamples": 64,
+    "thickness": 6,
+    "points": 3264,
+    "triangles": 13056
+  },
+  "cold_ms": 31.78,
+  "samples": [
+    15.984,
+    14.428,
+    8.435,
+    9.994,
+    22.207
+  ],
+  "sample_count": 5,
+  "min_ms": 8.435,
+  "median_ms": 14.428,
+  "mean_ms": 14.21,
+  "p95_ms": 22.207,
+  "stddev_ms": 5.438,
+  "rsd_pct": 38.27,
+  "volume": 10651.932344,
+  "boundary_edges": 0,
+  "contact_ratio": {
+    "closed_form": 1.635185964,
+    "numeric_200k": 1.635257769,
+    "rel_err": 0.0000439,
+    "closed_us": 0.8929,
+    "numeric_ms": 11.983,
+    "speedup_per_call": 13421
+  }
+}
