@@ -2,7 +2,7 @@
 
 One pure `src/core.mjs` turns tooth counts, module and pressure angle into a **watertight involute gear mesh plus a certificate**: closed-form contact ratio, rack undercut verdict, arc tooth thickness, and volume = profile area × thickness. The same module runs in node and in the page; moving a slider recomputes every displayed number.
 
-**Measured** (node v24.19.0, this machine): contact ratio for 20T/40T, m=2, 20° is `1.635185964` closed-form vs `1.635257769` from an independent 200,000-point scan (rel. err `4.39e-5`); the closed form takes `0.8929 µs` vs `11.983 ms` for the scan (**13,421×** per call). Five presets (8,890 profile points, 35,560 triangles) are watertight with **0 boundary and 0 non-manifold edges**; mesh volume matches profile-area × thickness to `7.3e-15` relative. Baseline code: `baseline/naive.mjs`.
+**Measured** (node v24.19.0, this machine): contact ratio for 20T/40T, m=2, 20° is `1.635185964` closed-form vs `1.635257769` from an independent 200,000-point scan (rel. err `4.39e-5`); the closed form takes `0.8929 µs` vs `11.983 ms` for the scan (**13,421×** per call). Five presets (8,890 profile points, 35,560 triangles) are watertight with **0 boundary and 0 non-manifold edges**; mesh volume matches profile-area × thickness: worst of the five presets is `1.96e-14` relative (spur-20 alone is `7.30e-15`). Baseline code: `baseline/naive.mjs`.
 
 Upstream: none
 
@@ -35,7 +35,7 @@ Sliders: pinion teeth 10–40, wheel teeth 10–70, module 1–4 mm, pressure an
 | 200k-point scan | 11.983 ms, ratio 1.635257769 vs 1.635185964 |
 | tooth thickness at pitch (20T, m=2) | 3.130466 measured on the polygon vs πm/2 = 3.141593 (`3.54e-3` rel.) |
 | undercut limit, 20° | 2/sin²α = 17.0973 teeth; 17 flagged, 18 not |
-| volume vs area·t, 5 presets | max rel. error `7.30e-15` |
+| volume vs area·t, 5 presets | max rel. error `1.96e-14` (spur-20 alone `7.30e-15`) |
 | watertight, 5 presets | 0 boundary / 0 non-manifold edges (53,340 edges) |
 | scale m = 0.1, 1, 10 | contact ratio identical to 12 digits; V/m³ = 919.516093 at every scale |
 
